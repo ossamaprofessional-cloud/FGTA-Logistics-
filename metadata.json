@@ -1,0 +1,11 @@
+{
+  "name": "Transport Attendance",
+  "description": "Web-based attendance system for transport company drivers and helpers with face recognition, GPS location, and admin dashboard.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

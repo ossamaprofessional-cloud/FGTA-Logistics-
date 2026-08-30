@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mark Attendance</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="employee">
+  <div class="topbar">Daily Attendance<small id="today-label"></small></div>
+
+  <div class="wrap">
+    <div class="step-indicator">
+      <div class="step-dot active" id="dot-1"></div>
+      <div class="step-dot" id="dot-2"></div>
+      <div class="step-dot" id="dot-3"></div>
+      <div class="step-dot" id="dot-4"></div>
+    </div>
+
+    <!-- STEP 1: Location -->
+    <div class="card" id="step-location">
+      <h1>Step 1 of 3: Location</h1>
+      <p class="lead">Please allow Location to continue.</p>
+      <button class="btn btn-primary" id="btn-allow-location">Allow Location</button>
+      <div class="status-msg" id="location-status" style="display:none;"></div>
+    </div>
+
+    <!-- STEP 2: Face -->
+    <div class="card" id="step-face" style="display:none;">
+      <h1>Step 2 of 3: Verify Your Face</h1>
+      <p class="lead" id="face-instruction">Please look at the camera and take your photo.</p>
+
+      <div class="camera-frame" id="camera-frame">
+        <video id="video" autoplay playsinline muted></video>
+      </div>
+
+      <button class="btn btn-primary" id="btn-verify" style="margin-top:16px;" disabled>
+        <span class="spinner" id="cam-spinner"></span><span id="verify-label">Loading camera…</span>
+      </button>
+
+      <div class="status-msg" id="face-status" style="display:none;"></div>
+    </div>
+
+    <!-- STEP 3: Truck number -->
+    <div class="card" id="step-truck" style="display:none;">
+      <h1 id="greeting">Hello</h1>
+      <p class="lead">Enter Truck Number</p>
+      <input type="text" id="truckNumber" placeholder="e.g. LEA-1234" autocapitalize="characters" />
+      <button class="btn btn-primary" id="btn-submit">
+        <span class="spinner" id="submit-spinner" style="display:none;"></span><span id="submit-label">Confirm Attendance</span>
+      </button>
+      <div class="status-msg" id="truck-status" style="display:none;"></div>
+    </div>
+
+    <!-- STEP 4: Done -->
+    <div class="card" id="step-done" style="display:none;">
+      <div class="big-check">✓</div>
+      <h1 style="text-align:center;">Attendance Marked Successfully</h1>
+      <div style="margin-top:18px;">
+        <div class="summary-row"><span class="label">Employee</span><span class="value" id="sum-name"></span></div>
+        <div class="summary-row"><span class="label">Truck</span><span class="value" id="sum-truck"></span></div>
+        <div class="summary-row"><span class="label">Time</span><span class="value" id="sum-time"></span></div>
+        <div class="summary-row"><span class="label">Location</span><span class="value" id="sum-city"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">Having trouble? Contact your supervisor.</div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script defer src="/js/face-utils.js"></script>
+  <script defer src="/js/attendance.js"></script>
+</body>
+</html>

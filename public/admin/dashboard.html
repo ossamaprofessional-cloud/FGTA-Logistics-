@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Transport Attendance</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="admin">
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="brand">Transport Co.<small>Attendance Admin</small></div>
+      <nav>
+        <a data-view="today" class="active">Today</a>
+        <a data-view="history">Attendance History</a>
+        <a data-view="monthly">Monthly Summary</a>
+        <a data-view="employees">Employees</a>
+        <a id="logout-link">Log Out</a>
+      </nav>
+    </aside>
+
+    <main class="admin-main">
+      <div class="admin-topbar">
+        <h1 id="view-title">Today's Attendance</h1>
+        <div class="who" id="who-label"></div>
+      </div>
+
+      <!-- ================= TODAY ================= -->
+      <section id="view-today">
+        <div class="stat-grid">
+          <div class="stat-card"><div class="num" id="stat-present-today">–</div><div class="lbl">Present Today</div></div>
+          <div class="stat-card"><div class="num" id="stat-employees">–</div><div class="lbl">Registered Employees</div></div>
+          <div class="stat-card"><div class="num" id="stat-trucks-today">–</div><div class="lbl">Trucks Active Today</div></div>
+        </div>
+        <table>
+          <thead><tr><th>Employee</th><th>ID</th><th>Truck</th><th>Time</th><th>City</th><th>Status</th></tr></thead>
+          <tbody id="today-tbody"><tr><td colspan="6">Loading…</td></tr></tbody>
+        </table>
+      </section>
+
+      <!-- ================= HISTORY ================= -->
+      <section id="view-history" style="display:none;">
+        <div class="filters">
+          <input type="text" id="f-search" placeholder="Search employee name/ID" />
+          <input type="text" id="f-truck" placeholder="Truck number" />
+          <input type="text" id="f-city" placeholder="City" />
+          <input type="date" id="f-date-from" />
+          <input type="date" id="f-date-to" />
+          <button class="btn btn-secondary" id="btn-filter" style="width:auto; padding:9px 16px;">Filter</button>
+          <button class="btn btn-secondary" id="btn-export" style="width:auto; padding:9px 16px;">Export CSV</button>
+        </div>
+        <table>
+          <thead><tr><th>Employee</th><th>ID</th><th>Truck</th><th>Date</th><th>Time</th><th>City</th><th>Coordinates</th><th>Status</th><th></th></tr></thead>
+          <tbody id="history-tbody"><tr><td colspan="9">Loading…</td></tr></tbody>
+        </table>
+      </section>
+
+      <!-- ================= MONTHLY ================= -->
+      <section id="view-monthly" style="display:none;">
+        <div class="filters">
+          <select id="m-month"></select>
+          <select id="m-year"></select>
+          <button class="btn btn-secondary" id="btn-load-monthly" style="width:auto; padding:9px 16px;">Load</button>
+        </div>
+        <div class="monthly-grid-wrap">
+          <table class="monthly-grid">
+            <thead><tr id="monthly-head"></tr></thead>
+            <tbody id="monthly-tbody"><tr><td>Choose a month and click Load.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================= EMPLOYEES ================= -->
+      <section id="view-employees" style="display:none;">
+        <div class="filters">
+          <input type="text" id="e-search" placeholder="Search employees" />
+          <button class="btn btn-secondary" id="btn-emp-search" style="width:auto; padding:9px 16px;">Search</button>
+        </div>
+        <p class="footer-note" style="text-align:left; padding:0 0 12px;">
+          New employees register themselves at <code>/register.html</code>. Use "Reset Face" here only if an
+          employee's face profile needs to be re-captured (e.g. they can no longer be recognized).
+        </p>
+        <table>
+          <thead><tr><th>Name</th><th>Employee ID</th><th>Registered</th><th>Status</th><th></th></tr></thead>
+          <tbody id="employees-tbody"><tr><td colspan="5">Loading…</td></tr></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

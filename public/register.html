@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Registration</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="employee">
+  <div class="topbar">Employee Registration<small>One-time only</small></div>
+
+  <div class="wrap">
+    <div class="step-indicator">
+      <div class="step-dot active" id="dot-1"></div>
+      <div class="step-dot" id="dot-2"></div>
+      <div class="step-dot" id="dot-3"></div>
+    </div>
+
+    <!-- STEP 1: Name -->
+    <div class="card" id="step-name">
+      <h1>Employee Registration</h1>
+      <p class="lead">Please enter your name and take one clear photo of your face.</p>
+
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" placeholder="e.g. Muhammad Ikram" autocomplete="name" />
+
+      <label for="customId">Employee ID (optional)</label>
+      <input type="text" id="customId" placeholder="e.g. EMP-014" />
+
+      <button class="btn btn-primary" id="btn-to-camera">Continue</button>
+      <div class="status-msg error" id="name-error" style="display:none;"></div>
+    </div>
+
+    <!-- STEP 2: Camera -->
+    <div class="card" id="step-camera" style="display:none;">
+      <h1>Take Your Photo</h1>
+      <p class="lead">Look straight at the camera in good light, then tap Capture.</p>
+
+      <div class="camera-frame" id="camera-frame">
+        <video id="video" autoplay playsinline muted></video>
+      </div>
+
+      <button class="btn btn-primary" id="btn-capture" style="margin-top:16px;" disabled>
+        <span class="spinner" id="cam-spinner"></span><span id="capture-label">Loading camera…</span>
+      </button>
+      <button class="btn btn-secondary" id="btn-back-name" style="margin-top:10px;">Back</button>
+
+      <div class="status-msg" id="camera-status" style="display:none;"></div>
+    </div>
+
+    <!-- STEP 3: Done -->
+    <div class="card" id="step-done" style="display:none;">
+      <div class="big-check">✓</div>
+      <h1 style="text-align:center;">Registration Complete</h1>
+      <p class="lead" style="text-align:center;">You do not need to register again.</p>
+      <a class="btn btn-success" href="/attendance.html" style="text-decoration:none; display:block; text-align:center;">
+        Go to Daily Attendance
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-note">Your face photo is converted into a secure code and is not stored as a picture.</div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script defer src="/js/face-utils.js"></script>
+  <script defer src="/js/register.js"></script>
+</body>
+</html>

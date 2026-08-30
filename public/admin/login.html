@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="login-shell">
+    <div class="login-card">
+      <h1>Admin / HR Login</h1>
+      <p class="lead">Authorized company personnel only.</p>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" autocomplete="username" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" autocomplete="current-password" />
+
+      <button class="btn btn-primary" id="btn-login">Log In</button>
+      <div class="status-msg error" id="login-error" style="display:none; margin-top:14px;"></div>
+    </div>
+  </div>
+
+  <script src="/js/admin-login.js"></script>
+  <!-- login script lives in /public/js/ alongside the other client scripts -->
+</body>
+</html>
